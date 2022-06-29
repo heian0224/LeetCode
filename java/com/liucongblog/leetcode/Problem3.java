@@ -4,11 +4,11 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class Problem3 {
-    public int lengthOfLongestSubstring(String s) {
+    public static int lengthOfLongestSubstring(String s) {
         if (s.isEmpty() || s.length() == 1) {
             return s.isEmpty() ? 0 : 1;
         }
-        int maxSubString = 0;
+        int maxSubString = 1;
         Deque deque = new LinkedList<>();
         deque.add(s.charAt(0));
         int leftCursor = 0;
@@ -20,7 +20,7 @@ public class Problem3 {
                 continue;
             }
             if (deque.contains(s.charAt(rightCursor))) {
-                deque.removeFirst();
+                deque.removeLast();
                 leftCursor++;
             } else {
                 deque.push(s.charAt(rightCursor));
@@ -34,5 +34,9 @@ public class Problem3 {
         }
 
         return maxSubString;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(lengthOfLongestSubstring("pwwkew"));
     }
 }
