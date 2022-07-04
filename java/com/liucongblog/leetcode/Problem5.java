@@ -2,6 +2,9 @@ package com.liucongblog.leetcode;
 
 public class Problem5 {
     public static String longestPalindrome(String s) {
+        if(s.length()==1){
+            return s;
+        }
         int maxLen = 0;
         String res = "";
         for (int i = 0; i < s.length(); i++) {
@@ -9,6 +12,7 @@ public class Problem5 {
             for (int j = i+1; j < s.length(); j++) {
                 String subStr=s.substring(i,j);
                 if(isPalindromicString(subStr)&&subStr.length()>maxLen){
+                    maxLen= subStr.length();
                     res=subStr;
                 }
             }
