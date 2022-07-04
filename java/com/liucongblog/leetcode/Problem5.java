@@ -6,7 +6,7 @@ public class Problem5 {
         String res = "";
         for (int i = 0; i < s.length(); i++) {
 
-            for (int j = 1; j < s.length(); j++) {
+            for (int j = i+1; j < s.length(); j++) {
                 String subStr=s.substring(i,j);
                 if(isPalindromicString(subStr)&&subStr.length()>maxLen){
                     res=subStr;
