@@ -7,13 +7,35 @@ public class Problem5 {
         }
         int maxLen = 0;
         String res = "";
-        for (int i = 0; i < s.length(); i++) {
-
-            for (int j = i+1; j <= s.length(); j++) {
-                String subStr=s.substring(i,j);
-                if(isPalindromicString(subStr)&&subStr.length()>maxLen){
-                    maxLen= subStr.length();
-                    res=subStr;
+        for (int i = 0; i < s.length()-1; i++) {
+            //expand to use i as center, contains right index.
+            int leftIndex=i;
+            int rightIndex=i;
+            while(leftIndex>=0 && rightIndex<s.length()){
+                if(s.charAt(leftIndex)==s.charAt(rightIndex)){
+                    if(rightIndex-leftIndex+1>maxLen){
+                        maxLen=rightIndex-leftIndex+1;
+                        res=s.substring(leftIndex,rightIndex+1);
+                    }
+                    leftIndex--;
+                    rightIndex++;
+                }else{
+                    break;
+                }
+            }
+            //expand to use i and i+1 as center,contains right index.
+            leftIndex=i;
+            rightIndex=i+1;
+            while(leftIndex>=0 && rightIndex<s.length()){
+                if(s.charAt(leftIndex)==s.charAt(rightIndex)){
+                    if(rightIndex-leftIndex+1>maxLen){
+                        maxLen=rightIndex-leftIndex+1;
+                        res=s.substring(leftIndex,rightIndex+1);
+                    }
+                    leftIndex--;
+                    rightIndex++;
+                }else{
+                    break;
                 }
             }
         }
@@ -21,16 +43,8 @@ public class Problem5 {
         return res;
     }
 
-    private  static boolean isPalindromicString(String subStr) {
-        for (int i = 0; i < subStr.length()/2; i++) {
-            if(subStr.charAt(i)!= subStr.charAt(subStr.length()-i-1)){
-                return false;
-            }
-        }
-        return true;
-    }
 
     public static void main(String[] args) {
-        System.out.println(longestPalindrome("babad"));
+        System.out.println(longestPalindrome("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"));
     }
 }
