@@ -6,7 +6,6 @@ public class Problem8 {
             return 0;
         }
         int sign = 1;
-        int res = 0;
         String trimmedStr = s.trim();
         String readStr = trimmedStr;
         if (trimmedStr.isEmpty()) {
