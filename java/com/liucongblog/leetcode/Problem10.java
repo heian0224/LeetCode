@@ -2,54 +2,31 @@ package com.liucongblog.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class Problem10 {
     public static boolean isMatch(String s, String p) {
         if (s == null || s.isEmpty() || p == null || p.isEmpty()) {
             return false;
         }
-        if((p.equals(".")&&s.length()==1  )|| s.equals(p)){
-            return true;
-        }
-        int matchIndex = 0;
-         List<String> subPatterns= new ArrayList<>();
-        for (int i = 0; i < p.length(); i++) {
-            if(i<p.length()-1 && p.charAt(i+1)=='*'){
-                subPatterns.add(p.charAt(i)+"*");
-            }else {
-                subPatterns.add(String.valueOf(p.charAt(i)));
-            }
-        }
-        for (int i = 0; i < subPatterns.size(); i++) {
-            String subPattern= subPatterns.get(i);
-            boolean singlePattern= subPattern.length()==1;
-            if(singlePattern){
-                boolean subMatch= isMatch(s.substring(matchIndex,matchIndex+1),subPattern);
-                if(!subMatch){
-                    return false;
-                }
-                matchIndex++;
-            }else {
-
-            }
-
-        }
-
         int firstPoint = 0;
         int secondPoint = 0;
         if (s.charAt(secondPoint) == '*') {
             return false;
         }
-
+        int secondCount = 0;
         while (firstPoint < s.length() && secondPoint < p.length()) {
             if(secondPoint<p.length()-1){
                 //current character use * pattern
                 if(p.charAt(secondPoint+1)=='*'){
                     if(p.charAt(secondPoint)=='.'||p.charAt(secondPoint)==s.charAt(firstPoint)){
-                        if(firstPoint==s.length()-1&& secondPoint==p.length()-2){
+                        if(firstPoint==s.length()-1&& secondPoint+1+secondCount==p.length()-1){
                             return true;
                         }
                         firstPoint++;
+                        if(secondPoint+1+secondCount+1<=p.length()-1 &&p.charAt(secondPoint+1+secondCount+1)==p.charAt(secondPoint) ){
+                            secondCount++;
+                        }
                         continue;
                     } else {
                         secondPoint=secondPoint+2;
@@ -59,7 +36,7 @@ public class Problem10 {
                 }
 
             }
-            if(p.charAt(secondPoint)=='.'||p.charAt(secondPoint)==s.charAt(firstPoint)){
+             if(p.charAt(secondPoint)=='.'||p.charAt(secondPoint)==s.charAt(firstPoint)){
                 firstPoint++;
                 secondPoint++;
             }else {
@@ -71,11 +48,9 @@ public class Problem10 {
             return true;
         }
         return false;
-
-        return true;
     }
 
     public static void main(String[] args) {
-        System.out.println(isMatch("aa", "a*"));
+        System.out.println(isMatch("aaa", "ab*a*c*a"));
     }
 }
