@@ -28,6 +28,34 @@ package com.liucongblog.leetcode;
 public class Problem14 {
 
     public String longestCommonPrefix(String[] strs) {
-        return null;
+
+        int minLength = Integer.MAX_VALUE;
+        String minStr = "";
+        for (int i = 0; i < strs.length; i++) {
+            if (strs[i].length() < minLength) {
+                minLength = strs[i].length();
+                minStr = strs[i];
+            }
+        }
+        if (minStr.isEmpty()) {
+            return "";
+        }
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < minStr.length(); i++) {
+            char currentChar = minStr.charAt(i);
+            boolean allContain = true;
+            for (int j = 0; j < strs.length; j++) {
+                if (strs[j].charAt(i) != currentChar) {
+                    allContain = false;
+                    break;
+                }
+            }
+            if (!allContain) {
+                break;
+            } else {
+                result.append(currentChar);
+            }
+        }
+        return result.toString();
     }
 }
