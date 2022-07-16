@@ -2,6 +2,14 @@ package com.liucongblog.leetcode;
 
 import java.util.Stack;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem7</p>
+ * <p>Description: Solution for Problem 7</p>
+ *
+ * @author Cong
+ * @date 2022/7/6
+ */
 public class Problem7 {
     public static int reverse(int x) {
         if(x==Integer.MAX_VALUE||x==Integer.MIN_VALUE){

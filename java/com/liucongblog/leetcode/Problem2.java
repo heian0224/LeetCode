@@ -1,5 +1,13 @@
 package com.liucongblog.leetcode;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem2</p>
+ * <p>Description: Solution for Problem 2</p>
+ *
+ * @author Cong
+ * @date 2022/6/12
+ */
 public class Problem2 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         if(l1== null || l2 ==null)

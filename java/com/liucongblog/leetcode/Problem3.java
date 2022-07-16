@@ -2,7 +2,14 @@ package com.liucongblog.leetcode;
 
 import java.util.Deque;
 import java.util.LinkedList;
-
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem3</p>
+ * <p>Description: Solution for Problem 3</p>
+ *
+ * @author Cong
+ * @date 2022/6/29
+ */
 public class Problem3 {
     public static int lengthOfLongestSubstring(String s) {
         if (s.isEmpty() || s.length() == 1) {

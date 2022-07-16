@@ -1,5 +1,13 @@
 package com.liucongblog.leetcode;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem6</p>
+ * <p>Description: Solution for Problem 6</p>
+ *
+ * @author Cong
+ * @date 2022/7/5
+ */
 public class Problem6 {
     public static String convert(String s, int numRows) {
         if(s==null || s.length()==0 || numRows>=s.length() ||numRows==1){

@@ -1,5 +1,13 @@
 package com.liucongblog.leetcode;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem12</p>
+ * <p>Description: Solution for Problem 12</p>
+ *
+ * @author Cong
+ * @date 2022/7/11
+ */
 public class Problem12 {
     /**
      * Symbol       Value

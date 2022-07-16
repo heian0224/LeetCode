@@ -1,5 +1,15 @@
+package com.liucongblog.leetcode;
+
 import java.util.Map;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem13</p>
+ * <p>Description: Solution for Problem 13</p>
+ *
+ * @author Cong
+ * @date 2022/7/12
+ */
 public class Problem13 {
     /**
      * Symbol       Value

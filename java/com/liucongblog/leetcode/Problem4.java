@@ -1,5 +1,13 @@
 package com.liucongblog.leetcode;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem4</p>
+ * <p>Description: Solution for Problem 4</p>
+ *
+ * @author Cong
+ * @date 2022/7/1
+ */
 public class Problem4 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int[] newArr=new int[nums1.length+nums2.length];

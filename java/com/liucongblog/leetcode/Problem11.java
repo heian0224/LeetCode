@@ -1,5 +1,13 @@
 package com.liucongblog.leetcode;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem11</p>
+ * <p>Description: Solution for Problem 11</p>
+ *
+ * @author Cong
+ * @date 2022/7/10
+ */
 public class Problem11 {
     public static int maxArea(int[] height) {
         if (height== null){

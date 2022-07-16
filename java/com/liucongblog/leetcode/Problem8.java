@@ -1,5 +1,13 @@
 package com.liucongblog.leetcode;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem8</p>
+ * <p>Description: Solution for Problem 8</p>
+ *
+ * @author Cong
+ * @date 2022/7/7
+ */
 public class Problem8 {
     public static int myAtoi(String s) {
         if (s == null) {

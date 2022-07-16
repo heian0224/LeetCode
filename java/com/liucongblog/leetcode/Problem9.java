@@ -3,6 +3,14 @@ package com.liucongblog.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem9</p>
+ * <p>Description: Solution for Problem 9</p>
+ *
+ * @author Cong
+ * @date 2022/7/9
+ */
 public class Problem9 {
     public boolean isPalindrome(int x) {
         if (x<0) {

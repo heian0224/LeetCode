@@ -1,5 +1,13 @@
 package com.liucongblog.leetcode;
 
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem5</p>
+ * <p>Description: Solution for Problem 5</p>
+ *
+ * @author Cong
+ * @date 2022/7/5
+ */
 public class Problem5 {
     public static String longestPalindrome(String s) {
         if(s.length()==1){

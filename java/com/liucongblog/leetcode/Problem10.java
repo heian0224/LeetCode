@@ -1,9 +1,13 @@
 package com.liucongblog.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
-
+/**
+ * <p>Project: LeetCode</p>
+ * <p>File: com.liucongblog.leetcode.Problem10</p>
+ * <p>Description: Solution for Problem 10</p>
+ *
+ * @author Cong
+ * @date 2022/7/9
+ */
 public class Problem10 {
     public static boolean isMatch(String s, String p) {
         if (s == null || s.isEmpty() || p == null || p.isEmpty()) {
