@@ -40,9 +40,9 @@ public class Problem21 {
      * -100 <= Node.val <= 100
      * Both list1 and list2 are sorted in non-decreasing order.
      *
-     * @param list1
-     * @param list2
-     * @return
+     * @param list1 list node 1
+     * @param list2 list node 2
+     * @return merged list node
      */
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         if(list1==null ||list2==null){
