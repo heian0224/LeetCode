@@ -73,7 +73,7 @@ public class Problem27 {
         int leftIndex=0;
         int rightIndex=nums.length-1;
         int count=0;
-        while (leftIndex<rightIndex){
+        while (leftIndex<=rightIndex){
             if(nums[rightIndex]==val){
                 count++;
                 rightIndex--;
