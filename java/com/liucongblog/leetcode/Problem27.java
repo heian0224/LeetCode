@@ -66,6 +66,10 @@ public class Problem27 {
      * @return
      */
     public static int removeElement(int[] nums, int val) {
+
+        if(nums.length==1){
+            return nums[0]==val?0:1;
+        }
         int leftIndex=0;
         int rightIndex=nums.length-1;
         int count=0;
@@ -87,11 +91,11 @@ public class Problem27 {
             rightIndex--;
             count++;
         }
-        return count;
+        return nums.length-count;
     }
 
     public static void main(String[] args) {
-        System.out.println(removeElement(new int[]{3,2,2,3},3));
+        System.out.println(removeElement(new int[]{0,1,2,2,3,0,4,2},2));
     }
 }
 
