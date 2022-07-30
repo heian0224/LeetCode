@@ -50,7 +50,7 @@ public class Problem30 {
         Map<String,List<Integer>> maps=  new HashMap<>();
         for (int i = 0; i <words.length ; i++) {
             String word= words[i];
-            int[] positions=s.indexOf(word);
+//            int[] positions=s.indexOf(word);
         }
 
 
