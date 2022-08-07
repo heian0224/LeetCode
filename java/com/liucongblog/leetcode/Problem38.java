@@ -58,7 +58,7 @@ public class Problem38 {
         Character loopChar=null;
         int count=0;
         for (int i = 0; i < previousStr.length() ; i++) {
-            Character current=previousStr.charAt(i);
+            char current=previousStr.charAt(i);
             if(loopChar==null){
                 loopChar=current;
                 count++;
