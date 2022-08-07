@@ -90,15 +90,11 @@ public class Problem39 {
                 if (subTarget > 0) {
                     List<List<Integer>> subResult = combinationSum(subCandidates, subTarget);
                     if (subResult.size() > 0) {
-                        if (j > 0) {
-                            for (List<Integer> currentSubRes : subResult) {
-                                for (int l = 0; l < j; l++) {
-                                    currentSubRes.add(current);
-                                }
-                                res.add(currentSubRes);
+                        for (List<Integer> currentSubRes : subResult) {
+                            for (int l = 0; l < j; l++) {
+                                currentSubRes.add(current);
                             }
-                        } else {
-                            res.addAll(subResult);
+                            res.add(currentSubRes);
                         }
                     }
                 }
