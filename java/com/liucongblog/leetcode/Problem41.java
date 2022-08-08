@@ -42,32 +42,35 @@ public class Problem41 {
      * @return the smallest missing positive integer
      */
     public static int firstMissingPositive(int[] nums) {
-        if(nums.length==1){
-            return nums[0]==1?2:1;
-        }
+
         //Cyclic Sort
-        int index = 0;
-        while (index < nums.length) {
-            int current = nums[index];
-            if (current < 0 || current > nums.length - 1 || current == index) {
+        int index = 1;
+        while (index <= nums.length) {
+            int current = nums[index-1];
+            if (current <= 0 || current > nums.length - 1 || current == index) {
                 index++;
             } else {
-                //swap index and current
-                int tmp = nums[current];
-                nums[current] = current;
-                nums[index] = tmp;
-            }
-        }
-        for (int i = 1; i < nums.length; i++) {
 
-            if (nums[i] != i) {
-                return i;
+                //swap index and current
+                int tmp = nums[current-1];
+                if(tmp==current){
+                    index++;
+                    continue;
+                }
+                nums[current-1] = current;
+                nums[index-1] = tmp;
             }
         }
-        return nums.length;
+        for (int i = 0; i < nums.length; i++) {
+
+            if (nums[i] != i+1) {
+                return i+1;
+            }
+        }
+        return nums.length+1;
     }
 
     public static void main(String[] args) {
-        System.out.println(firstMissingPositive(new int[]{1, 2, 0}));
+        System.out.println(firstMissingPositive(new int[]{3,4,-1,1}));
     }
 }
