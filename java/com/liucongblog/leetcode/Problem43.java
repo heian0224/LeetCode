@@ -46,15 +46,32 @@ public class Problem43 {
             return String.valueOf(0);
         }
         StringBuilder res = new StringBuilder();
+        int previousAdded=0;
+        int loopCount=num1.length()+num2.length();
+        for (int i = 2; i <=loopCount; i++) {
+            int tmpRes=previousAdded;
+            for (int j = 1; j < i&&j<=num1.length(); j++) {
+                int index1=num1.length()-j;
+                int index2=num2.length()-(i-j);
+                if(index2>=0){
+                    int currentPos1=num1.charAt(index1)-'0';
+                    int currentPos2=num2.charAt(index2)-'0';
+                    tmpRes+=currentPos1*currentPos2;
+                }
 
-
-
-
+            }
+            int reminder=tmpRes%10;
+            previousAdded= tmpRes/10;
+            res.append(reminder);
+        }
+        if(previousAdded>0){
+            res.append(previousAdded);
+        }
         return res.reverse().toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(multiply("498828660196",
-                "840477629533"));
+        System.out.println(multiply("12",
+                "12"));
     }
 }
