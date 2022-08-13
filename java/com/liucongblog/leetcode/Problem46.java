@@ -55,11 +55,10 @@ public class Problem46 {
             return res;
         }
         List<List<Integer>> subResList=permute(Arrays.copyOfRange(nums,1,nums.length));
-        for (int i = 0; i < subResList.size(); i++) {
-            List<Integer>  subRes=subResList.get(i);
-            for (int j = 0; j <nums.length ; j++) {
-                List<Integer> copied= new ArrayList<>(List.copyOf(subRes));
-                copied.add(j,nums[0]);
+        for (List<Integer> subRes : subResList) {
+            for (int j = 0; j < nums.length; j++) {
+                List<Integer> copied = new ArrayList<>(List.copyOf(subRes));
+                copied.add(j, nums[0]);
                 res.add(copied);
             }
         }
