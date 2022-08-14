@@ -1,6 +1,9 @@
 package com.liucongblog.leetcode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>Project: LeetCode</p>
@@ -39,7 +42,37 @@ public class Problem47 {
      * @param nums
      * @return
      */
-    public List<List<Integer>> permuteUnique(int[] nums) {
-        return null;
+    public static List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (nums.length == 0) {
+            return res;
+        }
+
+        if (nums.length == 1) {
+            List<Integer> sub = new ArrayList<>();
+            sub.add(nums[0]);
+            res.add(sub);
+            return res;
+        }
+        List<List<Integer>> subResList = permuteUnique(Arrays.copyOfRange(nums, 1, nums.length));
+        for (List<Integer> subRes : subResList) {
+            for (int j = 0; j < nums.length; j++) {
+                if (j < subRes.size() && subRes.get(j) == nums[0]) {
+                    continue;
+                }
+                List<Integer> copied = new ArrayList<>(List.copyOf(subRes));
+                copied.add(j, nums[0]);
+                res.add(copied);
+            }
+        }
+
+
+        return res.stream().distinct().collect(Collectors.toList());
     }
+
+    public static void main(String[] args) {
+        System.out.println(permuteUnique(new int[]{1, 1, 2}));
+    }
+
+
 }
