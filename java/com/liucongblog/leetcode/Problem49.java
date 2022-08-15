@@ -1,6 +1,6 @@
 package com.liucongblog.leetcode;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * <p>Project: LeetCode</p>
@@ -44,9 +44,22 @@ public class Problem49 {
      * @return
      */
     public List<List<String>> groupAnagrams(String[] strs) {
-        strs[0]
+        Map<String,List<String>>   strMap=new HashMap<>();
+        for (int i = 0; i < strs.length; i++) {
+            char[] chars = strs[i].toCharArray();
+            Arrays.sort(chars);
+            String sorted = new String(chars);
+            if(strMap.get(sorted)==null){
+                List<String> added= new ArrayList<>();
+                added.add(strs[i]);
+                strMap.put(sorted,added);
+            }else {
+                List<String> added=strMap.get(sorted);
+                added.add(strs[i]);
+            }
 
 
-        return null;
+        }
+        return strMap.values().stream().toList();
     }
 }
