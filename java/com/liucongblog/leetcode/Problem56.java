@@ -46,43 +46,57 @@ public class Problem56 {
     public static int[][] merge(int[][] intervals) {
         int n = intervals.length;
         Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
-
-
-        List<Integer> resStartList = new ArrayList<>();
-        List<Integer> resEndList = new ArrayList<>();
-        List<Integer> addedIndexList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            if (addedIndexList.contains(i)) {
+        List<int[]> merged = new ArrayList<>();
+        for (int[] curr : intervals) {
+            if (merged.isEmpty()) {
+                merged.add(curr);
                 continue;
             }
-            int start = intervals[i][0];
-            int end = intervals[i][1];
-            int maxEnd = end;
-            for (int j = 0; j < n; j++) {
-                if (j == i) {
-                    continue;
-                }
-                int currentStart = intervals[j][0];
-                int currentEnd = intervals[j][1];
-                if (maxEnd >= currentStart) {
-                    addedIndexList.add(j);
-                    if (currentEnd > maxEnd) {
-                        maxEnd = currentEnd;
-                    }
-                }
-
-
+            int[] prev = merged.remove(merged.size() - 1);
+            if (curr[0] <= prev[1]) {
+                merged.add(new int[]{prev[0], Math.max(prev[1], curr[1])});
+            } else {
+                merged.add(prev);
+                merged.add(curr);
             }
-            resStartList.add(start);
-            resEndList.add(maxEnd);
-            addedIndexList.add(i);
         }
-        int[][] res = new int[resStartList.size()][2];
-        for (int i = 0; i < resStartList.size(); i++) {
-            res[i][0] = resStartList.get(i);
-            res[i][1] = resEndList.get(i);
-        }
-        return res;
+        return merged.toArray(new int[][]{});
+
+//
+//        List<Integer> resStartList = new ArrayList<>();
+//        List<Integer> resEndList = new ArrayList<>();
+//        List<Integer> addedIndexList = new ArrayList<>();
+//        for (int i = 0; i < n; i++) {
+//            if (addedIndexList.contains(i)) {
+//                continue;
+//            }
+//            int start = intervals[i][0];
+//            int maxEnd = intervals[i][1];
+//            for (int j = 0; j < n; j++) {
+//                if (j == i) {
+//                    continue;
+//                }
+//                int currentStart = intervals[j][0];
+//                int currentEnd = intervals[j][1];
+//                if (maxEnd >= currentStart) {
+//                    addedIndexList.add(j);
+//                    if (currentEnd > maxEnd) {
+//                        maxEnd = currentEnd;
+//                    }
+//                }
+//
+//
+//            }
+//            resStartList.add(start);
+//            resEndList.add(maxEnd);
+//            addedIndexList.add(i);
+//        }
+//        int[][] res = new int[resStartList.size()][2];
+//        for (int i = 0; i < resStartList.size(); i++) {
+//            res[i][0] = resStartList.get(i);
+//            res[i][1] = resEndList.get(i);
+//        }
+//        return res;
     }
 
     public static void main(String[] args) {
