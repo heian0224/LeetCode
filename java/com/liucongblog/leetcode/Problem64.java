@@ -41,6 +41,17 @@ public class Problem64 {
      * @return
      */
     public int minPathSum(int[][] grid) {
-        return -1;
+
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
+                if(i == 0 && j > 0)    //top row value (except leftmost)
+                    grid[i][j] += grid[i][j-1];
+                if(i > 0 && j == 0)    //left column value (except top)
+                    grid[i][j] += grid[i-1][j];
+                if(i > 0 && j > 0)
+                    grid[i][j] += Math.min(grid[i-1][j], grid[i][j-1]);
+            }
+        }
+        return grid[grid.length - 1][grid[0].length - 1];
     }
 }
