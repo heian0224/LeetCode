@@ -36,7 +36,29 @@ public class Problem67 {
      * @param b
      * @return
      */
-    public String addBinary(String a, String b) {
-        return null;
+    public static String addBinary(String a, String b) {
+        int len= Math.max(a.length(), b.length());
+        int addToNext=0;
+        StringBuilder stringBuilder=new StringBuilder();
+        for (int i = 0; i < len; i++) {
+            int index1=a.length()-1-i;
+            int index2=b.length()-1-i;
+            int num1=index1>=0?a.charAt(index1)=='0'?0:1:0;
+            int num2=index2>=0?b.charAt(index2)=='0'?0:1:0;
+            int res=num1+num2+addToNext;
+            addToNext=res/2;
+            int current=res%2;
+            stringBuilder.append(current);
+        }
+        if (addToNext!=0) {
+            stringBuilder.append(addToNext);
+        }
+
+
+        return stringBuilder.reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(addBinary("1010","1011"));
     }
 }
